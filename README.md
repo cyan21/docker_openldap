@@ -12,7 +12,7 @@ $ docker build -t ych/openldap:0.1 .
 2. run image
 
 ```
-$ docker run -itd -p 389:389 openldap:0.1
+$ docker run -itd -p 389:389 ych/openldap:0.1
 ```
 
 3. Init data 
