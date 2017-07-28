@@ -1,0 +1,48 @@
+dn: uid=yannc,ou=Users,dc=jfrog,dc=com
+objectClass: inetOrgPerson
+userPassword: jfrog
+cn: yannc
+uid: yannc
+sn: chaysinh
+
+dn: uid=jonathanr,ou=Users,dc=jfrog,dc=com
+objectClass: inetOrgPerson
+userPassword: jfrog
+cn: jonathanr
+uid: jonathanr
+sn: roquelaure
+
+dn: uid=hamzaz,ou=Users,dc=jfrog,dc=com
+objectClass: inetOrgPerson
+userPassword: jfrog
+cn: hamzaz
+uid: hamzaz
+sn: zaoui
+
+dn: uid=tony,ou=Users,dc=jfrog,dc=com
+objectClass: inetOrgPerson
+userPassword: jfrog
+cn: tony
+uid: tony
+sn: stark
+
+dn: uid=clark,ou=Users,dc=jfrog,dc=com
+objectClass: inetOrgPerson
+userPassword: jfrog
+cn: clark
+uid: clark
+sn: kent
+
+dn: uid=bruce,ou=Users,dc=jfrog,dc=com
+objectClass: inetOrgPerson
+userPassword: jfrog
+cn: bruce
+uid: bruce
+sn: wayne
+
+dn: uid=steve,ou=Users,dc=jfrog,dc=com
+objectClass: inetOrgPerson
+userPassword: jfrog
+cn: steve
+uid: steve
+sn: rogers

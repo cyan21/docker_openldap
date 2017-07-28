@@ -1,0 +1,20 @@
+dn: dc=jfrog,dc=com
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+o : jfrog com
+dc: jfrog
+
+# OUs for users and groups
+dn: cn=Manager,dc=jfrog,dc=com
+objectClass: organizationalRole
+cn: Manager
+description: Directory Manager
+
+dn: ou=Users,dc=jfrog,dc=com
+objectClass: organizationalUnit
+ou: Users
+
+dn: ou=Groups,dc=jfrog,dc=com
+objectClass: organizationalUnit
+ou: Groups

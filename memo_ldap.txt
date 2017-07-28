@@ -1,0 +1,81 @@
+=================================================================================
+INFO :
+
+  * preconfigured box for openldap with users + groups
+  * centos7 + openldap 2.4
+  * cat /etc/motd to see this message again !!!!!
+
+=================================================================================
+
+- HIERARCHY
+
+com > jfrog > Managers
+com > jfrog > Users
+com > jfrog > Groups
+com > jfrog > Groups > soleng
+com > jfrog > Groups > avengers
+com > jfrog > Groups > justice_league
+
+
+- USERS
+
+  * members of soleng group : yannc, jonathanr, hamzaz
+  * members of avengers group : tony, steve
+  * members of justice_league group : bruce, clark
+
+  =======================================
+  == PASSWORD FOR ALL USERS ;  jfrog   ==
+  =======================================
+
+- LDAP commands :
+
+ * search for yannc user: 
+   -----------------------------------------------------------------------------
+   $ ldapsearch -x -b dc=jfrog,dc=com cn=yannc
+   -----------------------------------------------------------------------------
+
+
+ * add user to group:
+   -----------------------------------------------------------------------------
+   $ ldapmodify -D cn=Manager,dc=jfrog,dc=com -w jfrog -f /root/add_member
+   -----------------------------------------------------------------------------
+   
+   where /root/add_member:
+
+   dn: cn=avengers,ou=Groups,dc=jfrog,dc=com
+   changetype: modify
+   add: member
+   member: uid=yannc,ou=Users,dc=jfrog,dc=com
+
+
+ * remove user from group:
+   -----------------------------------------------------------------------------
+   $ ldapmodify -D cn=Manager,dc=jfrog,dc=com -w jfrog -f /root/remove_member
+   -----------------------------------------------------------------------------
+   
+   where /root/remove_member :
+
+   dn: cn=avengers,ou=Groups,dc=jfrog,dc=com
+   changetype: modify
+   delete: member
+   member: uid=yannc,ou=Users,dc=jfrog,dc=com
+
+
+
+ * modify user :
+   -----------------------------------------------------------------------------
+   $ ldapmodify -D cn=Manager,dc=jfrog,dc=com -w jfrog -f /root/modif_user
+   -----------------------------------------------------------------------------
+   
+   where /root/modif_user :
+
+   dn: uid=yannc,ou=Users,dc=jfrog,dc=com
+   changetype: modify
+   add: mail
+   mail: yann.chaysinh@gmail.com
+   -
+   replace: mail
+   mail: yannc@jfrog.com
+   -
+   replace: userPassword
+   userPassword: yahoo 

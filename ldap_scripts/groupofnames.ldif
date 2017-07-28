@@ -1,0 +1,21 @@
+dn: cn=soleng,ou=Groups,dc=jfrog,dc=com
+objectClass: groupofnames
+cn: soleng
+description: solution engineers
+member: uid=yannc,ou=Users,dc=jfrog,dc=com
+member: uid=jonathanr,ou=Users,dc=jfrog,dc=com
+member: uid=hamzaz,ou=Users,dc=jfrog,dc=com
+
+dn: cn=avengers,ou=Groups,dc=jfrog,dc=com
+objectClass: groupofnames
+cn: avengers 
+description: marvel team 
+member: uid=tony,ou=Users,dc=jfrog,dc=com
+member: uid=steve,ou=Users,dc=jfrog,dc=com
+
+dn: cn=justice_league,ou=Groups,dc=jfrog,dc=com
+objectClass: groupofnames
+cn: justice_league 
+description: DC team 
+member: uid=bruce,ou=Users,dc=jfrog,dc=com
+member: uid=clark,ou=Users,dc=jfrog,dc=com
