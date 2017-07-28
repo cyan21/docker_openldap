@@ -18,7 +18,7 @@ RUN echo "olcRootPW: `slappasswd -s ${ldap_password}`" >> /etc/openldap/slapd.d/
     chown -R ldap:ldap /var/lib/ldap/
 
 
-COPY ldap_scripts/memberof.ldif /tmp/ 
+COPY ldap_scripts/centos7/memberof.ldif /tmp/ 
 COPY ldap_scripts/root.ldif /tmp/ 
 COPY ldap_scripts/users.ldif /tmp/ 
 COPY ldap_scripts/groupofnames.ldif /tmp/ 
