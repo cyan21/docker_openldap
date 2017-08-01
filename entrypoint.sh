@@ -1,4 +1,4 @@
 #!/bin/bash
 
-/usr/sbin/slapd -u ldap -h "ldap:/// ldapi:///" -d 32768 
+ulimit 1024 && /usr/sbin/slapd -u $1 -h "ldap:/// ldapi:///" -d $2 
 

@@ -24,7 +24,7 @@ COPY ldap_scripts/users.ldif /tmp/
 COPY ldap_scripts/groupofnames.ldif /tmp/ 
 COPY entrypoint.sh / 
 COPY init.sh / 
-COPY /memo_ldap.txt /
+COPY memo_ldap.txt /
 
 RUN chmod 755 /entrypoint.sh /init.sh
 
@@ -32,5 +32,7 @@ VOLUME ["/etc/openldap","/var/lib/ldap"]
 
 EXPOSE 389
 
-ENTRYPOINT ["/entrypoint.sh"]
+# 1st param is user and 2nd is log level
+# http://www.openldap.org/doc/admin24/slapdconfig.html
+ENTRYPOINT ["/entrypoint.sh","ldap", "32768"]
 

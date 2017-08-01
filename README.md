@@ -6,7 +6,14 @@
 1. build image
 
 ```
-$ docker build -t ych/openldap:0.1 .
+$ git clone https://github.com/cyan21/docker_openldap.git
+$ cd docker_openldap
+
+# for ubuntu xenial 
+$ docker build -t ych/openldap:0.1 -f ubuntu/Dockerfile .
+
+# for centos7
+$ docker build -t ych/openldap:0.1 -f centos7/Dockerfile .
 ```
 
 2. run image
@@ -36,7 +43,7 @@ done in 2 steps as I couldn't find a proper way to run my init script after the 
 
 * Customizations
 
-ldap password 
-running port
-volume
+- ldap password 
+- running port
+- volume
 
