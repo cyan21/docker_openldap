@@ -30,7 +30,7 @@ COPY ldap_scripts/root.ldif /tmp/
 COPY ldap_scripts/users.ldif /tmp/ 
 COPY ldap_scripts/groupofnames.ldif /tmp/ 
 COPY entrypoint.sh / 
-COPY init.sh / 
+COPY ubuntu/init.sh / 
 COPY memo_ldap.txt /
 
 RUN chmod 755 /entrypoint.sh /init.sh

@@ -1,4 +1,4 @@
-# Centos7 OpenLdap in docker container 
+# OpenLdap in docker container 
 
 
 ## How to 
@@ -39,11 +39,13 @@ $ docker exec <CONTAINER_ID> cat /memo_ldap.txt
 
 * Installation and feeding 
 
-done in 2 steps as I couldn't find a proper way to run my init script after the LDAP server is UP ...
+> done in 2 steps as I couldn't find a proper way to run my init script after the LDAP server is UP ...
 
 * Customizations
 
-- ldap password 
-- running port
-- volume
+ldap password 
+running port
+volume
 
+* To Do
+use a variable for the password in the init.sh
