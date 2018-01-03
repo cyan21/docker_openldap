@@ -1,22 +1,22 @@
-dn: uid=yannc,ou=Users,dc=jfrog,dc=com
+dn: uid=yann,ou=Users,dc=jfrog,dc=com
 objectClass: inetOrgPerson
 userPassword: jfrog
-cn: yannc
-uid: yannc
+cn: yann
+uid: yann
 sn: chaysinh
 
-dn: uid=jonathanr,ou=Users,dc=jfrog,dc=com
+dn: uid=jonathan,ou=Users,dc=jfrog,dc=com
 objectClass: inetOrgPerson
 userPassword: jfrog
-cn: jonathanr
-uid: jonathanr
+cn: jonathan
+uid: jonathan
 sn: roquelaure
 
-dn: uid=hamzaz,ou=Users,dc=jfrog,dc=com
+dn: uid=hamza,ou=Users,dc=jfrog,dc=com
 objectClass: inetOrgPerson
 userPassword: jfrog
-cn: hamzaz
-uid: hamzaz
+cn: hamza
+uid: hamza
 sn: zaoui
 
 dn: uid=tony,ou=Users,dc=jfrog,dc=com
@@ -46,3 +46,17 @@ userPassword: jfrog
 cn: steve
 uid: steve
 sn: rogers
+
+dn: uid=eran,ou=Users,dc=jfrog,dc=com
+objectClass: inetOrgPerson
+userPassword: jfrog
+cn: eran
+uid: eran
+sn: bluemental
+
+dn: uid=galit,ou=Users,dc=jfrog,dc=com
+objectClass: inetOrgPerson
+userPassword: jfrog
+cn: galit
+uid: galit
+sn: nadler
