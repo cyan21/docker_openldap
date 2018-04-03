@@ -19,7 +19,8 @@ $ docker build -t ych/openldap:0.1 -f centos7/Dockerfile .
 2. run image
 
 ```
-$ docker run -itd -p 389:389 ych/openldap:0.1
+$ mkidr /tmp/custmo_scripts
+$ docker run -itd -p 389:389 --mount type=bind,source=/tmp/custom_scripts,target=/tmp ych/openldap:0.1
 ```
 
 3. Init data 
@@ -41,11 +42,16 @@ $ docker exec <CONTAINER_ID> cat /memo_ldap.txt
 
 > done in 2 steps as I couldn't find a proper way to run my init script after the LDAP server is UP ...
 
+* Execute LDAP scripts
+
+you can add your custom ldif scripts in /tmp/custom_scripts and then do : 
+
+> $ docker exec <CONTAINER_ID> ldapadd -D  cn=Manager,dc=jfrog,dc=com -w jfrog -f /tmp/custom_scripts/ldap_script.ldif 
+
 * Customizations
 
 ldap password 
 running port
-volume
 
 * To Do
 use a variable for the password in the init.sh
