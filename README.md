@@ -46,7 +46,9 @@ $ docker exec <CONTAINER_ID> cat /memo_ldap.txt
 
 you can add your custom ldif scripts in /tmp/custom_scripts and then do : 
 
-> $ docker exec <CONTAINER_ID> ldapadd -D  cn=Manager,dc=jfrog,dc=com -w jfrog -f /tmp/custom_scripts/ldap_script.ldif 
+```
+$ docker exec <CONTAINER_ID> ldapadd -D  cn=Manager,dc=jfrog,dc=com -w jfrog -f /tmp/custom_scripts/ldap_script.ldif 
+```
 
 * Customizations
 
