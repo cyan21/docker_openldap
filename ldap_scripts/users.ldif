@@ -60,3 +60,17 @@ userPassword: jfrog
 cn: galit
 uid: galit
 sn: nadler
+
+dn: uid=frog_user,ou=Users,dc=jfrog,dc=com
+objectClass: inetOrgPerson
+userPassword: jfrog
+cn: frog_user
+uid: frog_user
+sn: frog_user
+
+dn: uid=frog_admin,ou=Users,dc=jfrog,dc=com
+objectClass: inetOrgPerson
+userPassword: jfrog
+cn: frog_admin
+uid: frog_admin
+sn: frog_admin

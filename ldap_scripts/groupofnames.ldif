@@ -21,3 +21,17 @@ cn: justice_league
 description: DC team
 member: uid=bruce,ou=Users,dc=jfrog,dc=com
 member: uid=clark,ou=Users,dc=jfrog,dc=com
+
+dn: cn=swampdev,ou=Groups,dc=jfrog,dc=com
+objectClass: groupofnames
+cn: swampdev
+description: for swampup 2018
+member: uid=frog_user,ou=Users,dc=jfrog,dc=com
+member: uid=frog_admin,ou=Users,dc=jfrog,dc=com
+
+dn: cn=swampadmin,ou=Groups,dc=jfrog,dc=com
+objectClass: groupofnames
+cn: swampadmin
+description: for swampup 2018
+member: uid=frog_admin,ou=Users,dc=jfrog,dc=com
+

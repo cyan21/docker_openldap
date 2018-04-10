@@ -34,8 +34,9 @@ COPY ubuntu/init.sh /
 COPY memo_ldap.txt /
 
 RUN chmod 755 /entrypoint.sh /init.sh
+RUN mkdir -p /opt/openldap/scripts/ 
 
-VOLUME ["/etc/ldap","/var/lib/ldap"]
+#VOLUME ["/etc/ldap","/var/lib/ldap","/opt/openldap/scripts"]
 
 EXPOSE 389
 
