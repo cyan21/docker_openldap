@@ -1,62 +1,31 @@
-# OpenLdap in docker container 
+# OpenLdap in docker container
 
+## How to
 
-## How to 
+1. run image
 
-1. build image
-
-```
-$ git clone https://github.com/cyan21/docker_openldap.git
-$ cd docker_openldap
-
-# for ubuntu xenial 
-$ docker build -t ych/openldap:0.1 -f ubuntu/Dockerfile .
-
-# for centos7
-$ docker build -t ych/openldap:0.1 -f centos7/Dockerfile .
-```
-
-2. run image
-
-> you can use the /opt/openldap/scripts folder inside the container as a mount point and add your custom ldap scripts to execute them
-```
-$ mkdir /tmp/custom_scripts
-$ docker run -itd -p 389:389 --mount type=bind,source=/tmp/custom_scripts,target=/opt/openldap/scripts/ ych/openldap:0.1
+```bash
+podman run -d \
+    --name openldap \
+    -p 1389:1389 \
+    -e BITNAMI_DEBUG=true \
+    -e LDAP_ROOT=dc=jfrog,dc=com \
+    -e LDAP_CUSTOM_LDIF_DIR=/my_custom_ldifs \
+    -v ~/data:/my_custom_ldifs:Z \
+    -v ~/data/modules/memberof.ldif:/opt/bitnami/openldap/etc/schema/memberof.ldif:Z \
+bitnami/openldap:2.5.11
 ```
 
-3. Init data 
+2. Init data 
+
+```bash
+for ldif in `ls data/*.ldif`; do 
+    podman cp $ldif openldap:/my_custom_ldifs/
+    echo "[INFO] executing $ldif ..."
+    podman exec -ti openldap -- ldapadd -H 'ldapi:///' -D "cn=admin,dc=jfrog,dc=com" -w adminpassword -x  -f my_custom_ldifs/$ldif  
+done
 
 ```
-$ docker exec <CONTAINER_ID> /init.sh
-```
 
-you can add your ldap scripts in /tmp/custom_scripts (host) and execute them in the container : 
-
-```
-$ cp ldap_script.ldif /tmp/custom_scripts/ 
-$ docker exec <CONTAINER_ID> ldapadd -D  cn=Manager,dc=jfrog,dc=com -w jfrog -f /opt/openldap/scripts/ldap_script.ldif 
-```
-
-
-
-## Good to know 
-
-* you can find a helper file in /memo_ldap.txt
-
-```
-$ docker exec <CONTAINER_ID> cat /memo_ldap.txt 
-```
-
-* Installation and feeding 
-
-> done in 2 steps as I couldn't find a proper way to run my init script after the LDAP server is UP ...
-
-
-
-* Customizations
-
-ldap password 
-running port
-
-* To Do
-use a variable for the password in the init.sh
+> you can add your ldap scripts in the data folder (host) and execute them as above
+> see the helper file in /memo_ldap.txt
